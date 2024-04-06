@@ -35,11 +35,6 @@ public class FrequencyTable{
         return null;
     }
 
-    private boolean contains(char c){
-        // Returns true if a character is present in the table, false otherwis
-        return false;
-    }
-
     public CharFreqPair[] toArray(){
         // Returns an array of CharFreqPairs present in the frequency table. For use when creating
         // tree nodes after data is in the table, so we can iterate through all the pairs.
