@@ -27,17 +27,46 @@ public class FrequencyTable{
     public void add(char c){
         // Adds a character to the frequency table if it is not already present
         // Increases its count by 1 if it is already in the table
+
+        int h = Math.abs(Character.hashCode(c)) % frequencies.length;
+
+        int hashIndex = h;
+
+        CharFreqPair currPair = frequencies[hashIndex];
+        while(currPair != null){
+            // If the pair is present simply add to its frequency and return
+            if (currPair.character() == c){
+                currPair.freq += 1.0;
+                return;
+            }
+            hashIndex = hashIndex + 1 % frequencies.length;
+            currPair = frequencies[hashIndex];
+        }
+
+        // If we reach a null spot then the character is not present, add new pair
+        frequencies[hashIndex] = new CharFreqPair(c);
+        size++;
     }
 
     public CharFreqPair get(char c){
         // Returns the character and frequency pair for the character specified
         // Returns null if it does not exist
-        return null;
-    }
+        int h = Math.abs(Character.hashCode(c)) % frequencies.length;
 
-    private boolean contains(char c){
-        // Returns true if a character is present in the table, false otherwis
-        return false;
+        int hashIndex = h;
+
+        CharFreqPair currPair = frequencies[hashIndex];
+        while(currPair != null){
+            // If the pair is present return it
+            if (currPair.character() == c){
+                return currPair;
+            }
+            hashIndex = hashIndex + 1 % frequencies.length;
+            currPair = frequencies[hashIndex];
+        }
+
+        // If we reach a null spot then the character is not present
+        return null;
     }
 
     public CharFreqPair[] toArray(){
@@ -46,8 +75,13 @@ public class FrequencyTable{
 
         CharFreqPair[] toReturn = new CharFreqPair[size];
 
-        // rest of method
-
+        int i = 0;
+        for (CharFreqPair cfp : frequencies){
+            if (cfp != null){
+                toReturn[i] = cfp;
+                i++;
+            }
+        }
         return toReturn;
     }
 }
