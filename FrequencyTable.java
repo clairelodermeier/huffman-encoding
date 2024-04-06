@@ -46,11 +46,45 @@ public class FrequencyTable{
         // If we reach a null spot then the character is not present, add new pair
         frequencies[hashIndex] = new CharFreqPair(c);
         size++;
+
+        int h = Math.abs(Character.hashCode(c)) % frequencies.length;
+
+        int hashIndex = h;
+
+        CharFreqPair currPair = frequencies[hashIndex];
+        while(currPair != null){
+            // If the pair is present simply add to its frequency and return
+            if (currPair.character() == c){
+                currPair.freq += 1.0;
+                return;
+            }
+            hashIndex = hashIndex + 1 % frequencies.length;
+            currPair = frequencies[hashIndex];
+        }
+
+        // If we reach a null spot then the character is not present, add new pair
+        frequencies[hashIndex] = new CharFreqPair(c);
+        size++;
     }
 
     public CharFreqPair get(char c){
         // Returns the character and frequency pair for the character specified
         // Returns null if it does not exist
+        int h = Math.abs(Character.hashCode(c)) % frequencies.length;
+
+        int hashIndex = h;
+
+        CharFreqPair currPair = frequencies[hashIndex];
+        while(currPair != null){
+            // If the pair is present return it
+            if (currPair.character() == c){
+                return currPair;
+            }
+            hashIndex = hashIndex + 1 % frequencies.length;
+            currPair = frequencies[hashIndex];
+        }
+
+        // If we reach a null spot then the character is not present
         int h = Math.abs(Character.hashCode(c)) % frequencies.length;
 
         int hashIndex = h;
@@ -75,6 +109,13 @@ public class FrequencyTable{
 
         CharFreqPair[] toReturn = new CharFreqPair[size];
 
+        int i = 0;
+        for (CharFreqPair cfp : frequencies){
+            if (cfp != null){
+                toReturn[i] = cfp;
+                i++;
+            }
+        }
         int i = 0;
         for (CharFreqPair cfp : frequencies){
             if (cfp != null){
