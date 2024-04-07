@@ -20,13 +20,13 @@ public class FrequencyTable{
 
     CharFreqPair[] frequencies;
     int size;
-    int totalLength;
+    double totalLength;
 
-    public FrequencyTable(int totalLength) {
+    public FrequencyTable(double totalLength) {
         // parameter is the length of the string for which we store frequencies
         this.frequencies = new CharFreqPair[256]; // max capacity: 256 possible ASCII characters
         this.size = 0;
-        this.totalLength = totalLength;
+        this.totalLength = totalLength * 1.0;
     }
 
     public void add(char c){
@@ -50,7 +50,9 @@ public class FrequencyTable{
         }
 
         // If we reach a null spot then the character is not present, add new pair
-        frequencies[hashIndex] = new CharFreqPair(c);
+        CharFreqPair newPair = new CharFreqPair(c);
+        newPair.freq = 1.0 / totalLength;
+        frequencies[hashIndex] = newPair;
         size++;
         }
 
