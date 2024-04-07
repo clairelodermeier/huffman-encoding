@@ -3,11 +3,13 @@ public class FrequencyTable{
     // Helper class for character and frequency pairs
     class CharFreqPair {
         char character;
+        int count;
         double freq;
     
         public CharFreqPair(char character) {
             this.character = character;
-            this.freq = 0;
+            this.count = 1;
+            this.freq = 0; // temporary, as it will be updated when adding to table
         }
         
         public char character(){
@@ -18,10 +20,13 @@ public class FrequencyTable{
 
     CharFreqPair[] frequencies;
     int size;
+    int totalLength;
 
-    public FrequencyTable() {
+    public FrequencyTable(int totalLength) {
+        // parameter is the length of the string for which we store frequencies
         this.frequencies = new CharFreqPair[256]; // max capacity: 256 possible ASCII characters
         this.size = 0;
+        this.totalLength = totalLength;
     }
 
     public void add(char c){
@@ -36,7 +41,8 @@ public class FrequencyTable{
         while(currPair != null){
             // If the pair is present simply add to its frequency and return
             if (currPair.character() == c){
-                currPair.freq += 1.0;
+                currPair.count += 1;
+                currPair.freq = (currPair.count * 1.0) / (totalLength * 1.0); // convert to double
                 return;
             }
             hashIndex = hashIndex + 1 % frequencies.length;
@@ -81,6 +87,7 @@ public class FrequencyTable{
                 i++;
             }
         }
+
         return toReturn;
     }
 }
