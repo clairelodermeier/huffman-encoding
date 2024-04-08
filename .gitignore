@@ -2,3 +2,8 @@
 /FrequencyTable.class
 /HuffmanTest.class
 /FrequencyTableTest.class
+/Decoder.class
+/Encoder.class
+/EncodingTable$CharPathPair.class
+/EncodingTable.class
+/FrequencyCalculator.class
