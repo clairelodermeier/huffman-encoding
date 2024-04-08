@@ -1,4 +1,4 @@
-public class Decoder() {
+public class Decoder {
     //Huffman Tree
     String originalString;
     String encodedString;

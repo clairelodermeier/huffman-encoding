@@ -17,7 +17,7 @@ public class EncodingTable {
             binPath = path;
         }
 
-        public getPath() {
+        public String getPath() {
             return binPath;
         }
     }
@@ -39,7 +39,7 @@ public class EncodingTable {
 
         CharPathPair currPair = encodings[hashIndex];
         while (currPair != null) {
-            if (currPair.character() == c) {
+            if (currPair.getCharacter() == c) {
                 return;
             }
             hashIndex = (hashIndex + 1) % encodings.length;
@@ -60,7 +60,7 @@ public class EncodingTable {
 
         CharPathPair currPair = encodings[hashIndex];
         while (currPair != null) {
-            if (currPair.character() == c) {
+            if (currPair.getCharacter() == c) {
                 return currPair;
             }
 
@@ -80,7 +80,7 @@ public class EncodingTable {
 
         CharPathPair currPair = encodings[hashIndex];
         while (currPair != null) {
-            if (currPair.character() == c) {
+            if (currPair.getCharacter() == c) {
                 return currPair.getPath();
             }
 

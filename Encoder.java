@@ -20,7 +20,7 @@ public class Encoder {
 
     // Traverse the huffman tree and build the table
     private EncodingTable buildTable() {
-
+        return null;
     }
 
     /**
