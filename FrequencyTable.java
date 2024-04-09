@@ -16,6 +16,11 @@ public class FrequencyTable{
             // Returns the pair's character (key)
             return this.character;
         }
+
+        // the only method i added for huffman tree
+        public int count() {
+            return this.count;
+        }
     }
 
     CharFreqPair[] frequencies;
