@@ -38,7 +38,11 @@ class EncodingTableTest {
 		assertEquals(encTable.get('a').getPath(), "111");
 		assertEquals(encTable.getSize(),5);
 
+		encTable.add('b', "0001");
+		assertEquals(encTable.get('b').getPath(), "1011");
 
+		
+		assertEquals(encTable.getPath('c'), "0");
 		
 
 
