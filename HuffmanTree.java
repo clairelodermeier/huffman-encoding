@@ -12,7 +12,7 @@ public class HuffmanTree {
 	 * priority queue uses the data in the FrequencyTable made in the
 	 * FrequencyCalculator to create nodes/leaves and inserts them into the queue.
 	 */
-	public HuffmanTree() {
+	public static void main(String[] args) {
 
 		try {
 			// creating a frequency table from the given file
@@ -85,6 +85,10 @@ public class HuffmanTree {
 	 * using binary values, 0 is a left traversal and 1 is a right traversal
 	 */
 	public static void printTree(Node root, String o) {
+		
+		if(root == null) {
+			return;
+		}
 
 		if (root.left == null && root.right == null && Character.isLetter(root.getVal())) {
 			System.out.println(root.getVal() + ": " + o);
