@@ -12,7 +12,7 @@ public class HuffmanTree {
 	 * priority queue uses the data in the FrequencyTable made in the
 	 * FrequencyCalculator to create nodes/leaves and inserts them into the queue.
 	 */
-	public static void main(String[] args) {
+	public HuffmanTree() {
 
 		try {
 			// creating a frequency table from the given file
