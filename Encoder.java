@@ -4,14 +4,17 @@ import java.io.IOException;
 
 public class Encoder {
     EncodingTable table;
-    // Huffman Tree;
+    HuffmanTree tree;
     String fileContent;
     String encodedString;
 
     public Encoder(String fileName) throws IOException {
         this.fileContent = fileToString(fileName);
-        this.table = buildTable();
+        this.tree = new HuffmanTree();
+        table = new EncodingTable();
+        buildTable(tree.root(), "");
         encodeContent();
+        System.out.println(encodedString);
     }
 
     public String getEncodedString(){
@@ -19,8 +22,22 @@ public class Encoder {
     }
 
     // Traverse the huffman tree and build the table
-    private EncodingTable buildTable() {
-        return null;
+    private void buildTable(Node root, String binaryPath) {
+        if(root == null){
+            return;
+        }
+
+        if(root.left == null && root.right == null){
+            table.add(root.getVal(), binaryPath);
+        }
+
+        if(root.left != null){
+            buildTable(root.left, binaryPath + "0");
+        }
+
+        if(root.right != null){
+            buildTable(root.right, binaryPath + "1");
+        }
     }
 
     /**

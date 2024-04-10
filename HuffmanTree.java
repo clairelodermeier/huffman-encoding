@@ -6,6 +6,7 @@ public class HuffmanTree {
 	private static FrequencyCalculator buildTable;
 	private static FrequencyTable table;
 	private static PriorityQueue<Node> tree;
+	private Node root;
 
 	/*
 	 * Constructor builds a Huffman tree using a priority queue, or min-heap. The
@@ -24,7 +25,7 @@ public class HuffmanTree {
 
 			createLeafNodes();
 
-			Node root = buildTree();
+			root = buildTree();
 			printTree(root, "");
 
 		} catch (IOException e) {
@@ -97,6 +98,10 @@ public class HuffmanTree {
 
 		printTree(root.left, o + "0");
 		printTree(root.right, o + "1");
+	}
+
+	public Node root(){
+		return this.root;
 	}
 
 }
