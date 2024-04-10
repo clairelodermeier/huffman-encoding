@@ -14,7 +14,7 @@ class EncoderTest {
 
 	@Test
 	void testAbc() throws IOException {
-		
+		//Encoder enc = new Encoder("abc.txt");
 	}
 
 }
