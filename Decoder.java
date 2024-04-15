@@ -1,5 +1,5 @@
 /**
- * @Author - Dawson Szarek
+ * @author Dawson Szarek
  * Class to decode a binaryEncoded string back to the
  * original ASCII string.
  */
@@ -30,6 +30,7 @@ public class Decoder {
         Node currNode = tree.root();
 
         try {
+            // Iterate over the encoded binary string
             for (int i = 0; i < encodedString.length(); i++) {
                 char ch = encodedString.charAt(i);
                 // if ch is 0 traverse left
@@ -41,16 +42,16 @@ public class Decoder {
                 }
                 // If a leaf node append character
                 if (currNode.left == null && currNode.right == null) {
-                    stringBuilder.append(currNode.getVal());
-                    currNode = tree.root();
+                    stringBuilder.append(currNode.getVal()); // append char to stringBuilder
+                    currNode = tree.root(); // reset currNode to root of Huffman Tree
                 }
             }
 
             // Set originalString to the decoded stringBuilder
             originalString = stringBuilder.toString();
         } catch (Exception e) {
-            System.out.println("Invalid Huffman Tree for Binary Encoded String");
+            // If Exception thrown, report a mismatch between the encoded string and Huffman Tree
+            System.out.println("Invalid Huffman Tree or Binary Encoded String");
         }
-
     }
 }

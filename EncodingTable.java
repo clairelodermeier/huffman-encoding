@@ -1,6 +1,6 @@
 /**
- * @Author - Dawson Szarek
- * Hashtable to store (char, binaryPath) pairs for Encoding
+ * @author Dawson Szarek
+ * Hashtable to store (char, binPath) pairs for Encoding
  */
 public class EncodingTable {
     // Helper class that contains the character along with its encoding path
@@ -45,6 +45,7 @@ public class EncodingTable {
 
         // Linearly probe until an open position is found
         while (currPair != null) {
+            // If c already exists in table, return
             if (currPair.getCharacter() == c) {
                 return;
             }
@@ -53,6 +54,7 @@ public class EncodingTable {
             currPair = encodings[hashIndex];
         }
 
+        // Insert new CharPathPair at first open Index
         CharPathPair newPair = new CharPathPair(c, path);
         encodings[hashIndex] = newPair;
         size++;
@@ -82,23 +84,26 @@ public class EncodingTable {
     }
 
     /**
-     * Returns the encoding path for char c if it
+     * Returns the Binary encoding path for char c if it
      * is in the Table else return Null
      */
     public String getPath(char c) {
         int hashIndex = Math.abs(Character.hashCode(c)) % encodings.length;
 
         CharPathPair currPair = encodings[hashIndex];
-        //
+        // Linearly probe until c is found or null is hit
         while (currPair != null) {
+            // If c is found return Binary encoding path
             if (currPair.getCharacter() == c) {
                 return currPair.getPath();
             }
 
+            // If not found, Linearly probe
             hashIndex = (hashIndex + 1) % encodings.length;
             currPair = encodings[hashIndex];
         }
 
+        // Return null if c not found in encodings[]
         return null;
     }
 

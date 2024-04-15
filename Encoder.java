@@ -3,7 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * @Author - Dawson Szarek
+ * @author Dawson Szarek
  * Class to Encode an ASCII string into a compressed encoded
  * binary string.
  */
