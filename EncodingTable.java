@@ -1,3 +1,7 @@
+/**
+ * @Author - Dawson Szarek
+ * Hashtable to store (char, binaryPath) pairs for Encoding
+ */
 public class EncodingTable {
     // Helper class that contains the character along with its encoding path
     class CharPathPair {
@@ -22,11 +26,11 @@ public class EncodingTable {
         }
     }
 
-    CharPathPair[] encodings;
-    int size;
+    CharPathPair[] encodings;   // Stores CharPathPairs
+    int size;   // Number of CharPathPairs currently in encodings[]
 
     public EncodingTable() {
-        encodings = new CharPathPair[256]; // max capacity: 256 possible ASCII characters
+        encodings = new CharPathPair[256]; // max capacity: possible ASCII characters
         size = 0;
     }
 
@@ -38,11 +42,14 @@ public class EncodingTable {
         int hashIndex = Math.abs(Character.hashCode(c)) % encodings.length;
 
         CharPathPair currPair = encodings[hashIndex];
+
+        // Linearly probe until an open position is found
         while (currPair != null) {
             if (currPair.getCharacter() == c) {
                 return;
             }
-            hashIndex = (hashIndex + 1) % encodings.length;
+
+            hashIndex = (hashIndex + 1) % encodings.length; // Linear Probing
             currPair = encodings[hashIndex];
         }
 
@@ -59,15 +66,18 @@ public class EncodingTable {
         int hashIndex = Math.abs(Character.hashCode(c)) % encodings.length;
 
         CharPathPair currPair = encodings[hashIndex];
+
+        // Linearly probe until c is found or null is hit
         while (currPair != null) {
             if (currPair.getCharacter() == c) {
                 return currPair;
             }
 
-            hashIndex = (hashIndex + 1) % encodings.length;
+            hashIndex = (hashIndex + 1) % encodings.length; // Linear Probing
             currPair = encodings[hashIndex];
         }
 
+        // Return null if c not found in encodings[]
         return null;
     }
 
@@ -79,6 +89,7 @@ public class EncodingTable {
         int hashIndex = Math.abs(Character.hashCode(c)) % encodings.length;
 
         CharPathPair currPair = encodings[hashIndex];
+        //
         while (currPair != null) {
             if (currPair.getCharacter() == c) {
                 return currPair.getPath();
