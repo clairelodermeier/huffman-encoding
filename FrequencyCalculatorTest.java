@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 
 
 /*
- * JUnit tests for FrequencyCalculator class. 
+ * JUnit tests for calculating character frequencies in an input file. 
+ * 
  * @author Claire Lodermeier
  */
 
@@ -67,5 +68,5 @@ class FrequencyCalculatorTest {
 		assertEquals(null, table.get('='));
 
 	}
-
+	
 }

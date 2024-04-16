@@ -6,6 +6,7 @@ import java.util.Scanner;
  * 
  * @author Claire Lodermeier
  */
+
 public class HuffmanEncoding {
 
 	public static void main(String[] args) throws IOException {

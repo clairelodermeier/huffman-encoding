@@ -5,7 +5,8 @@ import org.junit.jupiter.api.Test;
 
 
 /*
- * JUnit tests for FrequencyCalculator class. 
+ * JUnit tests for the structure that stores character frequencies. 
+ * 
  * @author Claire Lodermeier
  */
 

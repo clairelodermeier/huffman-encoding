@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 
 
 /*
- * JUnit tests for Encoder class.
+ * JUnit tests for the Huffman encoding process. 
+ * 
  * @author Claire Lodermeier
  */
 

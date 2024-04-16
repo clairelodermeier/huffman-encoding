@@ -2,6 +2,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+/*
+ * JUnit tests for the data structure that stores encoded characters. 
+ * 
+ * @author Claire Lodermeier
+ */
+
 class EncodingTableTest {
 
 	@Test
