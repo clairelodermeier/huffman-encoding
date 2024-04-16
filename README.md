@@ -2,7 +2,11 @@ Includes classes that implement the Huffman Encoding Process, along with JUnit t
 
 Classes: 
 
+EncodingTable.java: This class is a simple hash table that stores the (char, binaryPath) pairs that are later used in the Encoder.java class to quickly retrieve the binary paths associated with each key(character) in the input text.
 
+Encoder.java: This class contains all the necessary objects and methods to properly perform Huffman Encoding on the contents of a file. The name of this file is passed into the constructor and then a Huffman Tree is built from the contents of the file. An instance of an EncodingTable is then initialized and built from this Huffman Tree. The file content is then retrieved through getter methods from the FrequencyCalculator in the Huffman Tree and is traversed. The encoded string is built while traversing the file content by appending the binary path associated with each character to a stringBuilder. You can then retrieve the encoded string by calling the getter method getEncodedString().
+
+Decoder.java: This class contains all the necessary objects and methods to decode a Huffman encoded string. The constructor requires both the encoded string and the associated Huffman Tree to be passed in. Then, the decodeString() method performs the decoding logic. It performs the task of traversing the Huffman Tree to the left for each 0 encountered in the encoded string and right for each 1 encountered. This rebuilds the original string by appending each key(character) associated with every leaf node that is reached when traversing the Huffman Tree. You can retrieve the decoded string by using the getOriginalString() getter method. 
 
 
 Test Classes: 
