@@ -29,4 +29,11 @@ class EncoderTest {
         FrequencyCalculator calc = new FrequencyCalculator("austen.txt");
         Encoder enc = new Encoder(calc.getFileContent());
     }
+    
+    @Test
+    void testEmpty() throws IOException {
+    
+        //FrequencyCalculator calc = new FrequencyCalculator("empty.txt");
+        //Encoder enc = new Encoder(calc.getFileContent());
+    }
 }
