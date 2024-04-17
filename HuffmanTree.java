@@ -82,22 +82,31 @@ public class HuffmanTree {
 	}
 
 	/*
-	 * method recurses the tree to print the path to each character in the tree
-	 * using binary values, 0 is a left traversal and 1 is a right traversal
+	 * method builds a tree from the PriorityQueue by recursing through the tree
+	 * nodes and printing them as leaf nodes and root nodes
 	 */
-	public static void printTree(Node root, String o) {
-		
-		if(root == null) {
-			return;
-		}
+	private static Node buildTree() {
+		// TODO Auto-generated method stub
 
-		if (root.left == null && root.right == null && Character.isLetter(root.getVal())) {
-			System.out.println(root.getVal() + ": " + o);
-			return;
-		}
+		// we start with an empty tree
+		Node root = null;
 
-		printTree(root.left, o + "0");
-		printTree(root.right, o + "1");
+		// while the priority queue has more than 1 character
+		while (tree.size() > 1) {
+			// grab the two least frequent characters
+			Node min1 = tree.poll();
+			Node min2 = tree.poll();
+			// create a new Node with min1 and min2 being its children
+			Node upcomingRoot = new Node('-', min1.getVal() + min2.getFreq());
+
+			upcomingRoot.setLeft(min1);
+			upcomingRoot.setRight(min2);
+			// set it to be the root node
+			root = upcomingRoot;
+
+			tree.add(upcomingRoot);
+		}
+		return root;
 	}
 
 	public Node root(){
