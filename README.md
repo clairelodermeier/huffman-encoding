@@ -2,6 +2,12 @@ Includes classes that implement the Huffman Encoding Process, along with JUnit t
 
 Classes: 
 
+HuffmanTree.java: This class builds a Huffman tree using a PriorityQueue, which implements a min-heap. The PriorityQueue uses the data in the FrequencyTable made in the FrequencyCalculator to create nodes in the Node class and inserts them into the queue. After all the nodes are inserted into the queue, the tree is then printed horizontally.
+
+Node.java: This class represents the nodes in the Huffman Tree. Each node contains the character it holds and its frequency value, as well as its left and right nodes.
+
+PriorityQueue.java: This class implements a data structure that is sorted based on each inserted element's prioirity. Each element is dequed in order of their priority, which means the one with the highest priority is removed first. This priority queue in particular implements a max-heap.
+
 FrequencyTable.java: This class is a hashtable that creates and stores (char, frequency) pairs containing a character and its frequency in the input text. There is a method that returns present pairs as an array for quicker processing when building the tree. It takes in the length of the text (string) as a parameter.
 
 FrequencyCalculator.java: This class takes in a file name as a parameter and builds a Frequency Table from its contents. The name of the file is passed to the constructor as a parameter, and it turns the file's contents into a string. Then, it creates a FrequencyTable object with the number of characters in the file (length of the string) as the parameter. Finally, it iterates through each character and updates the Frequency Table accordingly with its methods. 
