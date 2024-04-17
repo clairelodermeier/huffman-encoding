@@ -2,6 +2,10 @@ Includes classes that implement the Huffman Encoding Process, along with JUnit t
 
 Classes: 
 
+FrequencyTable.java: This class is a hashtable that creates and stores (char, frequency) pairs containing a character and its frequency in the input text. There is a method that returns present pairs as an array for quicker processing when building the tree. It takes in the length of the text (string) as a parameter.
+
+FrequencyCalculator.java: This class takes in a file name as a parameter and builds a Frequency Table from its contents. The name of the file is passed to the constructor as a parameter, and it turns the file's contents into a string. Then, it creates a FrequencyTable object with the number of characters in the file (length of the string) as the parameter. Finally, it iterates through each character and updates the Frequency Table accordingly with its methods. 
+
 EncodingTable.java: This class is a simple hash table that stores the (char, binaryPath) pairs that are later used in the Encoder.java class to quickly retrieve the binary paths associated with each key(character) in the input text.
 
 Encoder.java: This class contains all the necessary objects and methods to properly perform Huffman Encoding on the contents of a file. The name of this file is passed into the constructor and then a Huffman Tree is built from the contents of the file. An instance of an EncodingTable is then initialized and built from this Huffman Tree. The file content is then retrieved through getter methods from the FrequencyCalculator in the Huffman Tree and is traversed. The encoded string is built while traversing the file content by appending the binary path associated with each character to a stringBuilder. You can then retrieve the encoded string by calling the getter method getEncodedString().
