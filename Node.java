@@ -39,4 +39,9 @@ class Node implements Comparable<Node> {
 			// TODO Auto-generated method stub
 			return Integer.compare(this.getFreq(), o.getFreq());
 		}
+
+		public boolean leaf() {
+			// TODO Auto-generated method stub
+			return (this.left == null && this.right == null);
+		}
 	}
