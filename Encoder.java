@@ -13,10 +13,10 @@ public class Encoder {
     String fileContent;
     String encodedString;
 
-    public Encoder(String fileContent) throws IOException {
-        this.fileContent = fileContent;
-        this.tree = new HuffmanTree();
-        encodingTable = new EncodingTable();
+    public Encoder(String fileName) throws IOException {
+        this.tree = new HuffmanTree(fileName); // Create Huffman Tree from file
+        this.fileContent = tree.getBuildTable().getFileContent(); // Set fileContent to the text from fileName
+        this.encodingTable = new EncodingTable();
         buildTable(tree.root(), "");
         encodeContent();
     }
@@ -24,6 +24,11 @@ public class Encoder {
     // Returns the encoded binary string
     public String getEncodedString() {
         return this.encodedString;
+    }
+
+    // Returns the Huffman Tree tree
+    public HuffmanTree getTree() {
+        return this.tree;
     }
 
     // Traverse the huffman tree and build the encodingTable

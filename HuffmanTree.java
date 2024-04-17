@@ -1,11 +1,10 @@
 import java.io.IOException;
-import java.util.PriorityQueue;
 
 public class HuffmanTree {
 
 	private static FrequencyCalculator buildTable;
 	private static FrequencyTable table;
-	private static PriorityQueue<Node> tree;
+	private static PriorityQueue tree;
 	private Node root;
 
 	/*
@@ -21,12 +20,12 @@ public class HuffmanTree {
 			// grabbing the newly made table
 			table = buildTable.table();
 			// making the priority queue that will contain all the characters in the file
-			tree = new PriorityQueue<>(table.size);
+			tree = new PriorityQueue(table.size);
 
 			createLeafNodes();
 
 			root = buildTree();
-			printTree(root, "");
+			//printTree(root, "");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -81,32 +80,8 @@ public class HuffmanTree {
 		return root;
 	}
 
-	/*
-	 * method builds a tree from the PriorityQueue by recursing through the tree
-	 * nodes and printing them as leaf nodes and root nodes
-	 */
-	private static Node buildTree() {
-		// TODO Auto-generated method stub
-
-		// we start with an empty tree
-		Node root = null;
-
-		// while the priority queue has more than 1 character
-		while (tree.size() > 1) {
-			// grab the two least frequent characters
-			Node min1 = tree.poll();
-			Node min2 = tree.poll();
-			// create a new Node with min1 and min2 being its children
-			Node upcomingRoot = new Node('-', min1.getVal() + min2.getFreq());
-
-			upcomingRoot.setLeft(min1);
-			upcomingRoot.setRight(min2);
-			// set it to be the root node
-			root = upcomingRoot;
-
-			tree.add(upcomingRoot);
-		}
-		return root;
+	public FrequencyCalculator getBuildTable() {
+		return buildTable;
 	}
 
 	public Node root(){
