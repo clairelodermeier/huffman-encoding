@@ -15,20 +15,17 @@ class EncoderTest {
 
     @Test
     void testAbc() throws IOException {
-        FrequencyCalculator calc = new FrequencyCalculator("abc.txt");
-        Encoder enc = new Encoder(calc.getFileContent());
+        Encoder enc = new Encoder("abc.txt");
     }
 
     @Test
     void testYoga() throws IOException {
-        FrequencyCalculator calc = new FrequencyCalculator("yoga.txt");
-        Encoder enc = new Encoder(calc.getFileContent());
+        Encoder enc = new Encoder("yoga.txt");
     }
 
     @Test
     void testAusten() throws IOException {
-        FrequencyCalculator calc = new FrequencyCalculator("austen.txt");
-        Encoder enc = new Encoder(calc.getFileContent());
+        Encoder enc = new Encoder("austen.txt");
     }
     
     @Test

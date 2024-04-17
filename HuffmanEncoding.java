@@ -18,8 +18,8 @@ public class HuffmanEncoding {
 		
 		// encode the file
 		System.out.println("Encoding file... ");
-        FrequencyCalculator calc = new FrequencyCalculator(fileName);
-        Encoder enc = new Encoder(calc.getFileContent());
+        Encoder enc = new Encoder(fileName);
+		System.out.println("Original Text: " + enc.getTree().getBuildTable().getFileContent());
         String encodedStr = enc.getEncodedString();
 		System.out.println("Encoded string: " + encodedStr);
 
@@ -28,11 +28,9 @@ public class HuffmanEncoding {
 		System.out.print("Would you like to decode? [yes/no]: ");
 		String answer = k.next();
 		if(answer.equals("yes")) {
-	        HuffmanTree ht = new HuffmanTree();
-	        Decoder dec = new Decoder(encodedStr, ht);
-	        System.out.println(dec.getOriginalString());
+	        Decoder dec = new Decoder(encodedStr, enc.getTree());
+	        System.out.println("Decoded Text: " + dec.getOriginalString());
 		}
-        
 
 
 	}
