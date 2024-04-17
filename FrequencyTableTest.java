@@ -1,10 +1,7 @@
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
 
 /*
  * JUnit tests for the structure that stores character frequencies. 

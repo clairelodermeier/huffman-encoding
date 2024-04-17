@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 
 public class HuffmanTree {
@@ -27,7 +26,7 @@ public class HuffmanTree {
 			createLeafNodes();
 
 			root = buildTree();
-			//printTree(root, "");
+			// printTree(root, "");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -86,7 +85,7 @@ public class HuffmanTree {
 		return buildTable;
 	}
 
-	public Node root(){
+	public Node root() {
 		return this.root;
 	}
 

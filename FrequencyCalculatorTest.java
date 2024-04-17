@@ -1,9 +1,8 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
-
 
 /*
  * JUnit tests for calculating character frequencies in an input file. 
@@ -68,5 +67,5 @@ class FrequencyCalculatorTest {
 		assertEquals(null, table.get('='));
 
 	}
-	
+
 }
