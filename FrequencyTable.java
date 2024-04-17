@@ -1,3 +1,5 @@
+
+
 public class FrequencyTable{
 
     // Helper class for character and frequency pairs

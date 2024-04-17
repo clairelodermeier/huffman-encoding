@@ -29,19 +29,10 @@ class Node implements Comparable<Node> {
 			this.left = node;
 		}
 
-
-		public String toString() {
-			return "" + this.val;
-		}
-
 		@Override
 		public int compareTo(Node o) {
 			// TODO Auto-generated method stub
 			return Integer.compare(this.getFreq(), o.getFreq());
 		}
 
-		public boolean leaf() {
-			// TODO Auto-generated method stub
-			return (this.left == null && this.right == null);
-		}
 	}

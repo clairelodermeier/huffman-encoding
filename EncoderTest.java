@@ -1,3 +1,5 @@
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
@@ -16,22 +18,21 @@ class EncoderTest {
     @Test
     void testAbc() throws IOException {
         Encoder enc = new Encoder("abc.txt");
+        System.out.println("Encoded string: " + enc.getEncodedString());
     }
 
     @Test
     void testYoga() throws IOException {
         Encoder enc = new Encoder("yoga.txt");
+        System.out.println("Encoded string: " + enc.getEncodedString());
+
     }
 
     @Test
     void testAusten() throws IOException {
         Encoder enc = new Encoder("austen.txt");
+        System.out.println("Encoded string: " + enc.getEncodedString());
+
     }
     
-    @Test
-    void testEmpty() throws IOException {
-    
-        //FrequencyCalculator calc = new FrequencyCalculator("empty.txt");
-        //Encoder enc = new Encoder(calc.getFileContent());
-    }
 }
