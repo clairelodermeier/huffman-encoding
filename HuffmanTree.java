@@ -13,11 +13,11 @@ public class HuffmanTree {
 	 * priority queue uses the data in the FrequencyTable made in the
 	 * FrequencyCalculator to create nodes/leaves and inserts them into the queue.
 	 */
-	public HuffmanTree() {
+	public HuffmanTree(String fileName) {
 
 		try {
 			// creating a frequency table from the given file
-			buildTable = new FrequencyCalculator("abc.txt"); // file can be changed
+			buildTable = new FrequencyCalculator(fileName); // file can be changed
 			// grabbing the newly made table
 			table = buildTable.table();
 			// making the priority queue that will contain all the characters in the file
